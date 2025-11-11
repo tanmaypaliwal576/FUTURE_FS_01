@@ -1,23 +1,35 @@
 import React from "react";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Skills from "./components/Skills";
-import Projects from "./components/Projects";
-import Experience from "./components/Experience";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router";
+
+import Navbar from "./components/Navbar";
+import HeroSection from "./components/Hero";
+import AboutSection from "./components/AboutSection";
+import Project from "./components/Project";
 import ContactForm from "./components/ContactForm";
 import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div className="font-sans bg-gray-50 text-gray-800">
-      <Hero />
-      <About />
-      <Skills />
-      <Projects />
-      <Experience />
-      <ContactForm />
-      <Footer />
-    </div>
+    <Router>
+      <div className="app-container bg-[#0a0a0a] text-white min-h-screen">
+        <Navbar />
+        <main>
+          <Routes>
+            {/* Default Home */}
+            <Route path="/" element={<HeroSection />} />
+
+            {/* Other pages */}
+            <Route path="/about" element={<AboutSection />} />
+            <Route path="/project" element={<Project />} />
+            <Route path="/contact" element={<ContactForm />} />
+
+            {/* Redirect invalid URLs to home */}
+            <Route path="*" element={<Navigate to="/" />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
