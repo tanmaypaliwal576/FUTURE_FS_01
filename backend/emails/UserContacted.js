@@ -1,5 +1,5 @@
 // emails/UserContacted.js
-export default function UserContacted(name, email, textarea) {
+export default function UserContacted(name, email, textarea, subject) {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -31,6 +31,12 @@ export default function UserContacted(name, email, textarea) {
                     <td style="padding:8px;font-weight:bold;">Email:</td>
                     <td style="padding:8px;background-color:#f8f9fa;border-radius:4px;">${email}</td>
                   </tr>
+
+                  <tr>
+                    <td style="padding:8px;font-weight:bold;">Email:</td>
+                    <td style="padding:8px;background-color:#f8f9fa;border-radius:4px;">${subject}</td>
+                  </tr>
+
                   <tr>
                     <td style="padding:8px;font-weight:bold;vertical-align:top;">Message:</td>
                     <td style="padding:8px;background-color:#f8f9fa;border-radius:4px;white-space:pre-line;">${textarea}</td>

@@ -7,10 +7,26 @@ function Navbar() {
     <nav className="navbar">
       <h1 className="logo">Portfolio</h1>
       <ul className="nav-links">
-        <Link to="/">Home</Link>
-        <Link to="/about">About</Link>
-        <Link to="/project">Projects</Link>
-        <Link to="/contact">Contact</Link>
+        <li>
+          <Link to="/" className="nav-item">
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/about" className="nav-item">
+            About
+          </Link>
+        </li>
+        <li>
+          <Link to="/project" className="nav-item">
+            Projects
+          </Link>
+        </li>
+        <li>
+          <Link to="/contact" className="nav-item">
+            Contact
+          </Link>
+        </li>
       </ul>
     </nav>
   );

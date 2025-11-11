@@ -4,9 +4,9 @@ import UserContacted from "../emails/UserContacted.js";
 
 export const contactController = async (req, res) => {
   try {
-    const { name, email, textarea } = req.body;
+    const { name, email, textarea, subject } = req.body;
 
-    if (!name || !email || !textarea) {
+    if (!name || !email || !textarea || !subject) {
       return res.status(400).json({
         success: false,
         message: "All fields are required",
@@ -23,14 +23,14 @@ export const contactController = async (req, res) => {
     }
 
     // Save message to DB
-    const newContact = await Contact.create({ name, email, textarea });
+    const newContact = await Contact.create({ name, email, textarea, subject });
 
     // ✅ Send email via Resend
     const result = await resend.emails.send({
       from: "Portfolio <onboarding@resend.dev>", // Must be same as your Resend verified email
       to: "tanmay050706@gmail.com", // You receive it here
       subject: `New Contact from ${name}`,
-      html: UserContacted(name, email, textarea),
+      html: UserContacted(name, email, textarea, subject),
     });
     res.status(201).json({
       success: true,

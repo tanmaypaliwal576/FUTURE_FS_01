@@ -1,42 +1,35 @@
 import React from "react";
 import "../styles/Project.css";
+import { ExternalLink } from "lucide-react";
 
 const projects = [
   {
-    title: "E-Commerce Platform",
-    desc: "A full-featured e-commerce platform with payment integration and inventory management.",
-    tags: ["React", "Node.js", "PostgreSQL", "Stripe"],
-    image: "https://source.unsplash.com/600x400/?ecommerce",
+    title: "Huddle",
+    desc: "It is a dynamic real-time chat application built with the MERN stack. It allows users to engage in live, instant conversations through a clean and responsive interface",
+    tags: ["React", "Node.js", "MongoDB", "Socket.io"],
+    image: "/Resume/huddle.png",
+    link: "https://huddle-tgykr.sevalla.app/",
   },
   {
-    title: "Task Management App",
-    desc: "Collaborative task management application with real-time updates and team features.",
-    tags: ["React", "Firebase", "Material-UI"],
-    image: "https://source.unsplash.com/600x400/?task,work",
+    title: "Selective ARQ Simulator",
+    desc: "This project is an interactive simulator for the Selective Repeat ARQ (Automatic Repeat Request) protocol, a fundamental algorithm in computer networking ",
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: "/Resume/SRARQ.png",
+    link: "https://selectiverepeatarq.vercel.app/",
   },
   {
-    title: "Social Media Dashboard",
-    desc: "Analytics dashboard for managing multiple social media accounts with scheduling.",
-    tags: ["React", "TypeScript", "Tailwind"],
-    image: "https://source.unsplash.com/600x400/?social,media",
+    title: "Youtube Clone",
+    desc: "This project is a high-fidelity, responsive front-end clone of the YouTube homepage, built from scratch with HTML, CSS, and vanilla JavaScript. ",
+    tags: ["HTML", "CSS", "JavaScript"],
+    image: "/Resume/YT.png",
+    link: "https://youtube-nine-woad.vercel.app/",
   },
   {
-    title: "Weather App",
-    desc: "Real-time weather application using OpenWeather API.",
-    tags: ["React", "OpenWeather", "Chart.js"],
-    image: "https://source.unsplash.com/600x400/?weather",
-  },
-  {
-    title: "Portfolio CMS",
-    desc: "CMS system for managing portfolio projects and content.",
-    tags: ["React", "Express", "MongoDB"],
-    image: "https://source.unsplash.com/600x400/?coding,desk",
-  },
-  {
-    title: "Fitness Tracker",
-    desc: "Track workouts and progress analytics with modern UI.",
-    tags: ["React Native", "GraphQL", "GoogleFit"],
-    image: "https://source.unsplash.com/600x400/?fitness,gym",
+    title: "Portfolio Website",
+    desc: "My Portfolio Website Showcasing my Projects and Skills",
+    tags: ["Node.js", "Express", "MongoDB", "React"],
+    image: "/Resume/Portfolio.png",
+    link: "",
   },
 ];
 
@@ -51,6 +44,17 @@ export default function Projects() {
             <div className="project-content">
               <h3>{p.title}</h3>
               <p>{p.desc}</p>
+              <a
+                href={p.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 mb-4   text-cyan-400 font-medium hover:underline"
+              >
+                Live Link                
+                <ExternalLink className="w-4 h-4" />             
+              </a>
+              <br />
+
               <div className="tags">
                 {p.tags.map((tag, i) => (
                   <span key={i}>{tag}</span>
