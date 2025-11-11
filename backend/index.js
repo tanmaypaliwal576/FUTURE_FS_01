@@ -1,4 +1,3 @@
-// index.js
 import express from "express";
 import cors from "cors";
 import dotenv from "dotenv";
@@ -10,41 +9,37 @@ import contactRoute from "./routes/contact.js";
 dotenv.config();
 const app = express();
 
-// ✅ Middlewares
-app.use(cors());
+// ✅ Middleware
+app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 
 // ✅ Connect MongoDB
 mongoose
-  .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch((err) => console.error("❌ MongoDB connection error:", err));
 
-// ✅ Routes
+// ✅ API Routes
 app.use("/contact", contactRoute);
 
-// ✅ Base route
-app.get("/", (req, res) => {
+// ✅ Root route
+app.get("/api", (req, res) => {
   res.send("🚀 Portfolio backend running successfully!");
 });
 
-// ✅ Serve frontend (production)
+// ✅ Serve Frontend (Production)
 const __dirname = path.resolve();
-
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+  app.use(express.static(path.join(__dirname, "../frontend/build")));
 
   app.get("*", (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+    res.sendFile(path.join(__dirname, "../frontend", "build", "index.html"));
   });
 }
 
-// ✅ Start server
+// ✅ Dynamic port (important for Render)
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+app.listen(PORT, "0.0.0.0", () => {
   console.log(`✅ Server running on port ${PORT}`);
 });
