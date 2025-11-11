@@ -26,10 +26,10 @@ const projects = [
   },
   {
     title: "Portfolio Website",
-    desc: "My Portfolio Website Showcasing my Projects and Skills",
+    desc: "My personal portfolio website is designed to highlight my expertise, skills, and the projects I have worked on. It serves as a central hub for clients.",
     tags: ["Node.js", "Express", "MongoDB", "React"],
     image: "/Resume/Portfolio.png",
-    link: "",
+    link: "https://portfolio-65fr.onrender.com/",
   },
 ];
 
