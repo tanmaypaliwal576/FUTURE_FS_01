@@ -22,7 +22,7 @@ export default function ContactForm() {
     setStatus("");
 
     try {
-      const res = await fetch("https://portfolio-65fr.onrender.com/contact", {
+      const res = await fetch("http://localhost:3000/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -37,7 +37,6 @@ export default function ContactForm() {
       }
     } catch (err) {
       setStatus("❌ Server error. Please try again later.");
-      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -119,8 +118,6 @@ export default function ContactForm() {
               {loading ? "Sending..." : "Send Message"}
             </button>
           </form>
-
-          {/* Status message */}
           {status && <p className="status">{status}</p>}
         </div>
       </div>
