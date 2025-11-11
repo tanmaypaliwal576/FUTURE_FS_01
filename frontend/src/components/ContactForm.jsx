@@ -22,7 +22,7 @@ export default function ContactForm() {
     setStatus("");
 
     try {
-      const res = await fetch("http://localhost:3000/contact", {
+      const res = await fetch("https://portfolio-65fr.onrender.com/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
