@@ -1,0 +1,25 @@
+body {
+  font-family: "Poppins", sans-serif;
+  background: #f4f6f8;
+  margin: 0;
+  padding: 0;
+}
+
+.App {
+  text-align: center;
+  padding: 20px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+header h1 {
+  color: #2563eb;
+  margin-bottom: 10px;
+}
+
+header p {
+  color: #555;
+  font-size: 18px;
+}
