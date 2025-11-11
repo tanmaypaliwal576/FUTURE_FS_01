@@ -24,11 +24,6 @@ mongoose
 // ✅ API Routes
 app.use("/contact", contactRoute);
 
-// ✅ Root route
-app.get("/", (req, res) => {
-  res.send("🚀 Portfolio backend running successfully!");
-});
-
 // ------------------- MOVED THIS BLOCK UP -------------------
 // ✅ Serve Frontend (Vite build) in production
 if (process.env.NODE_ENV === "production") {
