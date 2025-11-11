@@ -8,7 +8,7 @@ export default function Footer() {
       <div className="flex gap-6 mb-6">
         {/* GitHub */}
         <a
-          href="https://github.com/yourusername"
+          href="https://github.com/tanmaypaliwal576"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-gray-800 hover:border-cyan-400 transition-all duration-300"
@@ -19,7 +19,7 @@ export default function Footer() {
 
         {/* LinkedIn */}
         <a
-          href="https://linkedin.com/in/yourusername"
+          href="https://www.linkedin.com/in/tanmay-paliwal-3506bb38b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
           target="_blank"
           rel="noopener noreferrer"
           className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-gray-800 hover:border-purple-400 transition-all duration-300"
@@ -30,7 +30,9 @@ export default function Footer() {
 
         {/* Email */}
         <a
-          href="mailto:youremail@example.com"
+          href="mailto:tanmaypaliwal12345@gmail.com?subject=Let's%20Work%20Together&body=Hi%20Tanmay,"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative flex items-center justify-center w-12 h-12 rounded-full border border-gray-800 hover:border-cyan-400 transition-all duration-300"
         >
           <div className="absolute inset-0 rounded-full bg-cyan-500/10 group-hover:blur-md group-hover:bg-cyan-500/20 transition-all"></div>
@@ -45,12 +47,12 @@ export default function Footer() {
       <p className="text-sm text-gray-500">
         Built with{" "}
         <a
-          href="https://nextjs.org/"
+          href="https://react.dev/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-cyan-400 hover:underline"
         >
-          Next.js
+          React.js
         </a>
         ,{" "}
         <a

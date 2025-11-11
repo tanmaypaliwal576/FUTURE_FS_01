@@ -12,6 +12,12 @@
   color: #b47bff;
   font-weight: 700;
   font-size: 1.3rem;
+  transition: transform 0.3s ease, text-shadow 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+  text-shadow: 0 0 10px #b47bff;
 }
 
 .nav-links {
@@ -20,11 +26,32 @@
   list-style: none;
 }
 
-.nav-links li {
-  cursor: pointer;
-  transition: color 0.3s;
+.nav-item {
+  position: relative;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-.nav-links li:hover {
+/* Underline animation */
+.nav-item::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, #b47bff, #7b68ee);
+  transition: width 0.3s ease;
+}
+
+/* Hover effect */
+.nav-item:hover {
   color: #b47bff;
+  text-shadow: 0 0 8px rgba(180, 123, 255, 0.8);
+}
+
+.nav-item:hover::after {
+  width: 100%;
 }
