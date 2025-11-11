@@ -13,6 +13,7 @@ const app = express();
 app.use(cors({ origin: true, credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
+const __dirname = path.resolve();
 
 // ✅ Connect MongoDB
 mongoose
@@ -28,15 +29,17 @@ app.get("/", (req, res) => {
   res.send("🚀 Portfolio backend running successfully!");
 });
 
-// ✅ Serve Frontend (Vite build)
-const __dirname = path.resolve();
+// ------------------- MOVED THIS BLOCK UP -------------------
+// ✅ Serve Frontend (Vite build) in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (_, res) => {
+  // This catch-all route must be LAST, after all other routes
+  app.get(/.* /, (_, res) => {
     res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
   });
 }
+// -----------------------------------------------------------
 
 // ✅ Dynamic port (important for Render)
 const PORT = process.env.PORT || 3000;
