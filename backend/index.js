@@ -8,12 +8,12 @@ import contactRoute from "./routes/contact.js";
 
 dotenv.config();
 const app = express();
+const __dirname = path.resolve();
 
 // ✅ Middleware
-app.use(cors({ origin: true, credentials: true }));
+app.use(cors({ origin: "*", credentials: true })); // allow all origins for testing
 app.use(express.json());
 app.use(cookieParser());
-const __dirname = path.resolve();
 
 // ✅ Connect MongoDB
 mongoose
@@ -24,19 +24,17 @@ mongoose
 // ✅ API Routes
 app.use("/contact", contactRoute);
 
-// ------------------- MOVED THIS BLOCK UP -------------------
-// ✅ Serve Frontend (Vite build) in production
+// ✅ Serve frontend in production
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  // This catch-all route must be LAST, after all other routes
-  app.get(/.* /, (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend", "dist", "index.html"));
+  // Catch-all route for SPA
+  app.get(/.*/, (_, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
   });
 }
-// -----------------------------------------------------------
 
-// ✅ Dynamic port (important for Render)
+// ✅ Dynamic port
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`✅ Server running on port ${PORT}`);
