@@ -10,32 +10,27 @@ dotenv.config();
 const app = express();
 const __dirname = path.resolve();
 
-// ✅ Middleware
-app.use(cors({ origin: "*", credentials: true })); // allow all origins for testing
+// Middleware
+app.use(cors());
 app.use(express.json());
 app.use(cookieParser());
 
-// ✅ Connect MongoDB
+// MongoDB connection
 mongoose
   .connect(process.env.MONGO_URI)
   .then(() => console.log("✅ MongoDB connected"))
-  .catch((err) => console.error("❌ MongoDB connection error:", err));
+  .catch((err) => console.error("❌ MongoDB error:", err));
 
-// ✅ API Routes
+// API route
 app.use("/contact", contactRoute);
 
-// ✅ Serve frontend in production
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// Serve React build files
+app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  // Catch-all route for SPA
-  app.get(/.*/, (_, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-  });
-}
-
-// ✅ Dynamic port
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server running on port ${PORT}`);
+app.get(/.*/, (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
 });
+
+// Port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`✅ Server running on port ${PORT}`));
