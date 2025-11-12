@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import React from "react";
+
 export default function AboutMe() {
   const skills = [
     {
@@ -40,12 +41,29 @@ export default function AboutMe() {
     },
     {
       name: "DSA",
-      logo: "https://cdn-icons-png.flaticon.com/512/2721/2721299.png", // generic algorithm icon
+      logo: "https://cdn-icons-png.flaticon.com/512/2721/2721299.png",
     },
   ];
 
   return (
     <section className="bg-[#0f1117] text-gray-300 px-6 py-16 flex flex-col items-center">
+      {/* ✨ About Me Heading (Updated Style) */}
+      <motion.div
+        className="text-center mb-16"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-4xl font-extrabold text-white tracking-wide mb-2">
+          ABOUT ME
+        </h2>
+        <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full shadow-[0_0_20px_rgba(168,85,247,0.7)]"></div>
+        <p className="text-gray-400 mt-2 text-sm">
+          A Glimpse into Who I am and What Drives Me 🚀
+        </p>
+      </motion.div>
+
+      {/* 🧑 About Content */}
       <div className="max-w-6xl w-full flex flex-col md:flex-row gap-10 items-center">
         {/* Profile Image */}
         <div className="relative w-72 h-80 rounded-md overflow-hidden border-2 border-purple-500/40 shadow-[0_0_25px_rgba(168,85,247,0.3)]">
@@ -56,11 +74,8 @@ export default function AboutMe() {
           />
         </div>
 
-        {/* About Content */}
+        {/* Text Content */}
         <div className="flex-1">
-          <h2 className="text-3xl font-bold text-white border-b-2 border-purple-500 inline-block mb-3">
-            ABOUT ME
-          </h2>
           <h3 className="text-lg text-purple-400 font-semibold mb-4">
             B.Tech Student | Aspiring Full Stack Developer | Lifelong Learner
           </h3>
@@ -108,8 +123,24 @@ export default function AboutMe() {
         </div>
       </div>
 
-      {/* 🌀 Logo Loop */}
-      <div className="mt-16 overflow-hidden w-full">
+      {/* ✨ Skills Heading */}
+      <motion.div
+        className="mt-20 text-center"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <h2 className="text-4xl font-extrabold text-white tracking-wide mb-2">
+          SKILLS
+        </h2>
+        <div className="w-24 h-1 bg-purple-500 mx-auto rounded-full shadow-[0_0_20px_rgba(168,85,247,0.7)]"></div>
+        <p className="text-gray-400 mt-2 text-sm">
+          Technologies & Tools I love working with 💻
+        </p>
+      </motion.div>
+
+      {/* 🌀 Scrolling Skills Logos */}
+      <div className="mt-12 overflow-hidden w-full">
         <motion.div
           className="flex gap-12 items-center"
           animate={{ x: ["0%", "-100%"] }}
@@ -123,7 +154,7 @@ export default function AboutMe() {
               <img
                 src={skill.logo}
                 alt={skill.name}
-                className="w-12 h-12 mb-2  transition-all duration-300"
+                className="w-12 h-12 mb-2 transition-all duration-300"
               />
               <p className="text-xs text-gray-400">{skill.name}</p>
             </div>
