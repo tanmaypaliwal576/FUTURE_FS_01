@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
-  "keywords": [],
   "scripts": {
-    "start": "npm run start --prefix backend",
-    "dev": "nodemon index.js"
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "build": "cd ../frontend && npm install && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -18,7 +18,6 @@
     "express": "^5.1.0",
     "mongoose": "^8.19.3",
     "nodemailer": "^7.0.10",
-    "nodemon": "^3.1.10",
     "resend": "^6.4.2"
   }
 }
