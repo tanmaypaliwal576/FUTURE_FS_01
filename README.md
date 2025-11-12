@@ -27,5 +27,4 @@ A modern, responsive, and animated portfolio website built using **React + Vite*
 
 Link : https://portfolio-65fr.onrender.com/
 
-## 📁 Folder Structure
 
