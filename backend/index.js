@@ -11,7 +11,8 @@ const app = express();
 const __dirname = path.resolve();
 
 // Middleware
-app.use(cors());
+app.use(cors({ origin: true, credentials: true }));
+
 app.use(express.json());
 app.use(cookieParser());
 
