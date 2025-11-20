@@ -27,9 +27,23 @@ const projects = [
   {
     title: "Portfolio Website",
     desc: "My personal portfolio website is designed to highlight my expertise, skills, and the personal projects I have worked on. It serves as a central hub for clients.",
-    tags: ["Node.js", "Express", "MongoDB", "React"],
+    tags: ["Node.js", "Express", "Resend", "React"],
     image: "/Resume/Portfolio.png",
     link: "https://tanmay-portfolio-1.onrender.com/",
+  },
+  {
+    title: "Global Mart",
+    desc: "Global Mart is a fully functional e-commerce platform offering a seamless shopping experience. It includes product browsing, cart management, secure checkout, and also a Admin Panel In which the admin can add the products.",
+    tags: ["Node.js", "Express", "Arcjet", "React"],
+    image: "/Resume/Global.png",
+    link: "https://future-fs-02-web8.onrender.com/",
+  },
+  {
+    title: "Caffinity",
+    desc: "Caffinity is a modern coffee brand website featuring a clean UI, product showcase, smooth animations, and an engaging brand experience. It highlights premium coffee products with an attractive frontend design.",
+    tags: ["Node.js", "Express", "MongoDB", "React"],
+    image: "/Resume/Caffinity.png",
+    link: "https://caffinity.onrender.com/",
   },
 ];
 
