@@ -1,5 +1,6 @@
 // lib/resend.js
 import { Resend } from "resend";
+import path from "path";
 import dotenv from "dotenv";
 
 dotenv.config();
