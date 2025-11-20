@@ -8,11 +8,11 @@ import contactRoute from "./routes/contact.js";
 
 dotenv.config();
 const app = express();
+
 const __dirname = path.resolve();
 
 // Middleware
 app.use(cors({ origin: true, credentials: true }));
-
 app.use(express.json());
 app.use(cookieParser());
 
@@ -25,11 +25,11 @@ mongoose
 // API route
 app.use("/contact", contactRoute);
 
-// Serve React build files
-app.use(express.static(path.join(__dirname, "../frontend/dist")));
+// 👉 Serve React frontend from backend/dist
+app.use(express.static(path.join(__dirname, "dist")));
 
 app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  res.sendFile(path.join(__dirname, "dist", "index.html"));
 });
 
 // Port
