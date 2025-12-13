@@ -114,7 +114,7 @@ export default function AboutMe() {
 
           {/* Download CV Button */}
           <a
-            href="/Resume/TanmayPaliwalResume.pdf"
+            href="/Resume/TP_Resume_1.pdf"
             download="Tanmay_Paliwal_Resume.pdf"
             className="inline-block border border-purple-500 px-6 py-2 rounded-full text-white hover:bg-purple-600/20 transition"
           >
